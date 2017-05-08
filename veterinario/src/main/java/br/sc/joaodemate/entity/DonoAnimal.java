@@ -14,11 +14,13 @@ public class DonoAnimal {
 	private String rg;
 	private String email;
 	private String telefone;
+	private String celular;
 	private String endereco;
 	private String numero;
 	private String cep;
 	private String complemento;
 	private String cidade;
+	private String bairro;
 	private String estado;
 
 	public Long getId() {
@@ -69,6 +71,14 @@ public class DonoAnimal {
 		this.telefone = telefone;
 	}
 
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
 	public String getEndereco() {
 		return endereco;
 	}
@@ -107,6 +117,14 @@ public class DonoAnimal {
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
 	public String getEstado() {
