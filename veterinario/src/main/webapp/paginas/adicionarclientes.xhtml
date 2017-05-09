@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 	          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -67,8 +66,8 @@
 										<li><a href="adicionarclientes.xhtml"><i
 												class="fa fa-user-plus" aria-hidden="true"></i> Adicionar
 												Clientes</a></li>
-										<li><a href="#"><i class="fa fa-bars"
-												aria-hidden="true"></i> Listar Clientes</a></li>
+										<li><a href="#"><i class="fa fa-bars"></i> Listar
+												Clientes</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 							</ul> <!-- /.nav-second-level --></li>
 					</a>
@@ -80,51 +79,51 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">Cadastro de Clientes</h1>
+					<div class="col-md-6 col-md-offset-3">
+						<h:messages styleClass="alert alert-success"
+							style="text-align:center; list-style-type: none;"></h:messages>
+					</div>
 				</div>
 			</div>
 			<div class="row">
 				<h:form>
-					<h:messages styleClass="alert alert-info"></h:messages>
 					<div class="col-lg-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">Preencher todos os campos</div>
+							<div class="panel-heading">Responsavel pelo Animal</div>
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-6">
-										<label>Nome</label>
-										<div class="form-group input-group">
-											<span class="input-group-addon"><span
-												class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-											<h:inputText pt:placeholder="..." type="text"
-												class="form-control" value="#{donoAnimalMb.donoAnimal.nome}" />
-										</div>
+										<label>Nome *</label>
+										<h:inputText pt:placeholder="..." class="form-control"
+											type="text" value="#{donoAnimalMb.donoAnimal.nome}"
+											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-3">
-										<label>CPF</label>
+										<label>CPF *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
 											id="cpf" value="#{donoAnimalMb.donoAnimal.cpf}"
 											mask="999.999.999-99" />
 									</div>
 									<div class="col-lg-3">
-										<label>RG</label>
+										<label>RG *</label>
 										<p:inputMask pt:placeholder="..." class="form-control" id="rg"
 											value="#{donoAnimalMb.donoAnimal.rg}" mask="99.999.999-9" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<label>E-Mail</label>
+										<label>E-Mail *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
 											id="email" value="#{donoAnimalMb.donoAnimal.email}" />
 									</div>
 									<div class="col-lg-4">
-										<label>Telefone</label>
+										<label>Telefone *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
 											id="telefone" value="#{donoAnimalMb.donoAnimal.telefone}"
 											mask="(999) 9999-9999" />
 									</div>
 									<div class="col-lg-4">
-										<label>Celular</label>
+										<label>Celular *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
 											id="celular" value="#{donoAnimalMb.donoAnimal.celular}"
 											mask="(999) 9 9999-9999" />
@@ -146,7 +145,8 @@
 									<div class="col-lg-3">
 										<label>Cidade</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="cidade" value="#{donoAnimalMb.donoAnimal.cidade}" />
+											id="cidade" value="#{donoAnimalMb.donoAnimal.cidade}"
+											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-3">
 										<label>CEP</label>
@@ -157,20 +157,23 @@
 									<div class="col-lg-3">
 										<label>Bairro</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="bairro" value="#{donoAnimalMb.donoAnimal.bairro}" />
+											id="bairro" value="#{donoAnimalMb.donoAnimal.bairro}"
+											style="text-transform: capitalize" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
 										<label>Endereço</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="endereco" value="#{donoAnimalMb.donoAnimal.endereco}" />
+											id="endereco" value="#{donoAnimalMb.donoAnimal.endereco}"
+											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-4">
 										<label>Complemento</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
 											id="complemento"
-											value="#{donoAnimalMb.donoAnimal.complemento}" />
+											value="#{donoAnimalMb.donoAnimal.complemento}"
+											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-4">
 										<label>Numero</label>
@@ -197,5 +200,12 @@
 	<script src="../bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 	<!-- Custom Theme JavaScript -->
 	<script src="../bootstrap/dist/js/sb-admin-2.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#myBtn").click(function() {
+				$("#myModal").modal();
+			});
+		});
+	</script>
 </h:body>
 </html>

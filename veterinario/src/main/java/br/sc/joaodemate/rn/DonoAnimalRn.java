@@ -18,4 +18,8 @@ public class DonoAnimalRn {
 		dao.salvar(donoAnimal);
 	}
 
+	public DonoAnimal buscarPorCpf(String cpf) {
+		return dao.buscarPorCpf(cpf);
+	}
+
 }
