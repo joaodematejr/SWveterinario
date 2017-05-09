@@ -1,6 +1,9 @@
 package br.sc.joaodemate.dao;
 
+import java.util.List;
+
 import javax.persistence.Query;
+
 import br.sc.joaodemate.entity.DonoAnimal;
 
 public class DonoAnimalDao extends Dao {
@@ -22,6 +25,12 @@ public class DonoAnimalDao extends Dao {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<DonoAnimal> listarDonoAnimal() {
+		Query query = getEM().createQuery("FROM DonoAnimal", DonoAnimal.class);//
+		return query.getResultList();
 	}
 
 }

@@ -19,7 +19,7 @@
 	<link href="../bootstrap/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css" />
 	<link rel="icon" href="../imagens/icon.png" type="image/x-icon" />
-	<title>Novo Cliente</title>
+	<title>Novo Veterinário</title>
 </h:head>
 <h:body>
 	<div id="wrapper" class="active">
@@ -86,15 +86,9 @@
 		</div>
 		</nav>
 		<div id="page-wrapper">
-			<!-- 		Carregar ID      -->
-			<f:metadata>
-				<f:viewParam name="id" value="#{donoAnimalMb.editarId}" />
-				<f:event listener="#{donoAnimalMb.carregarDonoAnimal}"
-					type="preRenderView" />
-			</f:metadata>
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Cadastro de Clientes</h1>
+					<h1 class="page-header">Cadastro Veterinário</h1>
 					<div class="col-md-6 col-md-offset-3">
 						<h:messages styleClass="alert alert-success"
 							style="text-align:center; list-style-type: none;"></h:messages>
@@ -105,43 +99,58 @@
 				<h:form>
 					<div class="col-lg-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">Responsavel pelo Animal</div>
+							<div class="panel-heading">Veterinário</div>
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-6">
-										<label>Nome *</label>
+										<label>Dono da Clínica *</label>
 										<h:inputText pt:placeholder="..." class="form-control"
-											type="text" value="#{donoAnimalMb.donoAnimal.nome}"
+											type="text"
+											value="#{veterinarioMb.veterinario.donoDaClinica}"
 											style="text-transform: capitalize" />
 									</div>
-									<div class="col-lg-3">
+									<div class="col-lg-6">
+										<label>Nome *</label>
+										<h:inputText pt:placeholder="..." class="form-control"
+											type="text" value="#{veterinarioMb.veterinario.nome}"
+											style="text-transform: capitalize" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<label>CRMV *</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="crmv" value="#{veterinarioMb.veterinario.crmv}"
+											mask="999.999.999" />
+									</div>
+									<div class="col-lg-4">
 										<label>CPF *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="cpf" value="#{donoAnimalMb.donoAnimal.cpf}"
+											id="cpf" value="#{veterinarioMb.veterinario.cpf}"
 											mask="999.999.999-99" />
 									</div>
-									<div class="col-lg-3">
+									<div class="col-lg-4">
 										<label>RG *</label>
 										<p:inputMask pt:placeholder="..." class="form-control" id="rg"
-											value="#{donoAnimalMb.donoAnimal.rg}" mask="99.999.999-9" />
+											value="#{veterinarioMb.veterinario.rg}" mask="99.999.999-9" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
 										<label>E-Mail *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="email" value="#{donoAnimalMb.donoAnimal.email}" />
+											id="email" value="#{veterinarioMb.veterinario.email}" />
 									</div>
 									<div class="col-lg-4">
 										<label>Telefone *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="telefone" value="#{donoAnimalMb.donoAnimal.telefone}"
+											id="telefone" value="#{veterinarioMb.veterinario.telefone}"
 											mask="(999) 9999-9999" />
 									</div>
 									<div class="col-lg-4">
 										<label>Celular *</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="celular" value="#{donoAnimalMb.donoAnimal.celular}"
+											id="celular" value="#{veterinarioMb.veterinario.celular}"
 											mask="(999) 9 9999-9999" />
 									</div>
 								</div>
@@ -150,7 +159,7 @@
 										<label>Estado</label>
 										<div class="form-group">
 											<h:selectOneMenu class="form-control"
-												value="#{donoAnimalMb.donoAnimal.estado}">
+												value="#{veterinarioMb.veterinario.estado}">
 												<f:selectItem itemValue="" itemLabel="Selecione um Estado" />
 												<f:selectItem itemValue="SC" itemLabel="Santa Catarina" />
 												<f:selectItem itemValue="RS" itemLabel="Rio Grande do Sul" />
@@ -161,46 +170,46 @@
 									<div class="col-lg-3">
 										<label>Cidade</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="cidade" value="#{donoAnimalMb.donoAnimal.cidade}"
+											id="cidade" value="#{veterinarioMb.veterinario.cidade}"
+											style="text-transform: capitalize" />
+									</div>
+									<div class="col-lg-3">
+										<label>Bairro</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="bairro" value="#{veterinarioMb.veterinario.bairro}"
 											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-3">
 										<label>CEP</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="cep" value="#{donoAnimalMb.donoAnimal.cep}"
+											id="cep" value="#{veterinarioMb.veterinario.cep}"
 											mask="99999-999" />
-									</div>
-									<div class="col-lg-3">
-										<label>Bairro</label>
-										<p:inputMask pt:placeholder="..." class="form-control"
-											id="bairro" value="#{donoAnimalMb.donoAnimal.bairro}"
-											style="text-transform: capitalize" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
 										<label>Endereço</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="endereco" value="#{donoAnimalMb.donoAnimal.endereco}"
+											id="endereco" value="#{veterinarioMb.veterinario.endereco}"
 											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-4">
 										<label>Complemento</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
 											id="complemento"
-											value="#{donoAnimalMb.donoAnimal.complemento}"
+											value="#{veterinarioMb.veterinario.complemento}"
 											style="text-transform: capitalize" />
 									</div>
 									<div class="col-lg-4">
 										<label>Numero</label>
 										<p:inputMask pt:placeholder="..." class="form-control"
-											id="numero" value="#{donoAnimalMb.donoAnimal.numero}" />
+											id="numero" value="#{veterinarioMb.veterinario.numero}" />
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer">
 								<h:commandLink styleClass="btn btn-success"
-									action="#{donoAnimalMb.salvar()}" value="Salvar" />
+									action="#{veterinarioMb.salvar()}" value="Salvar" />
 							</div>
 						</div>
 					</div>

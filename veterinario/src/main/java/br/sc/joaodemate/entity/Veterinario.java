@@ -5,11 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class DonoAnimal {
+public class Veterinario {
 	@Id
 	@GeneratedValue
 	private long id;
+	private String donoDaClinica;
 	private String nome;
+	private String crmv;
 	private String cpf;
 	private String rg;
 	private String email;
@@ -20,15 +22,23 @@ public class DonoAnimal {
 	private String cep;
 	private String complemento;
 	private String cidade;
-	private String bairro;
 	private String estado;
+	private String bairro;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getDonoDaClinica() {
+		return donoDaClinica;
+	}
+
+	public void setDonoDaClinica(String donoDaClinica) {
+		this.donoDaClinica = donoDaClinica;
 	}
 
 	public String getNome() {
@@ -37,6 +47,14 @@ public class DonoAnimal {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getCrmv() {
+		return crmv;
+	}
+
+	public void setCrmv(String crmv) {
+		this.crmv = crmv;
 	}
 
 	public String getCpf() {
@@ -119,20 +137,20 @@ public class DonoAnimal {
 		this.cidade = cidade;
 	}
 
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
 	public String getEstado() {
 		return estado;
 	}
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
 	@Override
@@ -151,7 +169,7 @@ public class DonoAnimal {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DonoAnimal other = (DonoAnimal) obj;
+		Veterinario other = (Veterinario) obj;
 		if (id != other.id)
 			return false;
 		return true;

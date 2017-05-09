@@ -1,6 +1,7 @@
 package br.sc.joaodemate.dao;
 
 import javax.persistence.EntityManager;
+
 import br.sc.joaodemate.commons.JpaUtils;
 
 public abstract class Dao {

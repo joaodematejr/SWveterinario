@@ -1,10 +1,13 @@
 package br.sc.joaodemate.mb;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 
 import br.sc.joaodemate.entity.DonoAnimal;
 import br.sc.joaodemate.rn.DonoAnimalRn;
@@ -14,6 +17,8 @@ import br.sc.joaodemate.rn.DonoAnimalRn;
 public class DonoAnimalMb {
 	private DonoAnimal donoAnimal;
 	private DonoAnimalRn donoAnimalRn;
+	private List<DonoAnimal> listarDonoAnimal;
+	private Long editarId;
 
 	@PostConstruct
 	public void init() {
@@ -37,24 +42,59 @@ public class DonoAnimalMb {
 		this.donoAnimalRn = donoAnimalRn;
 	}
 
+	public List<DonoAnimal> getListarDonoAnimal() {
+		if (listarDonoAnimal == null) {
+			listarDonoAnimal = donoAnimalRn.listarDonoAnimal();
+		}
+		return listarDonoAnimal;
+	}
+
+	public void setListarDonoAnimal(List<DonoAnimal> listarDonoAnimal) {
+		this.listarDonoAnimal = listarDonoAnimal;
+	}
+
+	public Long getEditarId() {
+		return editarId;
+	}
+
+	public void setEditarId(Long editarId) {
+		this.editarId = editarId;
+	}
+
+	public void carregarDonoAnimal(ComponentSystemEvent event) {
+		if (editarId == null) {
+			return;
+		}
+		donoAnimal = donoAnimalRn.buscarPorId(editarId);
+	}
+
+	// -------Salvar---------
 	public String salvar() {
 		DonoAnimal carregarCpf = donoAnimalRn.buscarPorCpf(donoAnimal.getCpf());
+		// -------Validar Algum Campo Vazio---------
 		if (donoAnimal.getNome().length() <= 4 || donoAnimal.getCpf().length() <= 11 || donoAnimal.getRg().length() <= 9
 				|| donoAnimal.getEmail().length() <= 5 || donoAnimal.getTelefone().length() <= 11
 				|| donoAnimal.getCelular().length() <= 11) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Existe algum campos em branco ! ", ""));
-			return null;
-		} else if (carregarCpf == null) {
-			/* donoAnimalRn.salvar(donoAnimal); */
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Registrado com sucesso ! ", ""));
-			return "adicionarclientes.xhtml";
+			// -------Validar Se CPF Já é cadastrado no sistema---------
+		} else if (donoAnimal.getId() == 0 && carregarCpf == null) {
+			donoAnimalRn.salvar(donoAnimal);
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, " Cadastrado(a) com sucesso ! ", "");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			donoAnimal = new DonoAnimal();
+			listarDonoAnimal = null;
+		} else if (donoAnimal.getId() != 0 && (carregarCpf == null || carregarCpf.getId() == donoAnimal.getId())) {
+			donoAnimalRn.salvar(donoAnimal);
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, " Alterado(a) com sucesso ! ", "");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			donoAnimal = new DonoAnimal();
+			listarDonoAnimal = null;
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "CPF já cadastrado no sistema ! ", ""));
-			return null;
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "O CPF já está cadastrado ! ", "");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
+		return null;
 
 	}
 

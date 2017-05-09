@@ -1,5 +1,7 @@
 package br.sc.joaodemate.rn;
 
+import java.util.List;
+
 import br.sc.joaodemate.dao.DonoAnimalDao;
 import br.sc.joaodemate.entity.DonoAnimal;
 
@@ -20,6 +22,10 @@ public class DonoAnimalRn {
 
 	public DonoAnimal buscarPorCpf(String cpf) {
 		return dao.buscarPorCpf(cpf);
+	}
+
+	public List<DonoAnimal> listarDonoAnimal() {
+		return dao.listarDonoAnimal();
 	}
 
 }

@@ -1,9 +1,5 @@
 package br.sc.joaodemate.filter;
 
-import javax.servlet.annotation.WebFilter;
-
-import br.sc.joaodemate.commons.JpaUtils;
-
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
@@ -13,6 +9,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+import br.sc.joaodemate.commons.JpaUtils;
 
 @WebFilter(servletNames = "Faces Servlet")
 public class JpaFilter implements Filter {
