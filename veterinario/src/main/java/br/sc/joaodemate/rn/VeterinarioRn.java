@@ -12,9 +12,8 @@ public class VeterinarioRn {
 		dao = new VeterinarioDao();
 	}
 
-	public static Object buscarPorId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Veterinario buscarPorId(Long id) {
+		return dao.buscarPorId(id);
 	}
 
 	public void salvar(Veterinario veterinario) {

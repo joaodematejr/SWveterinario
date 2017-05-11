@@ -17,4 +17,8 @@ public class VeterinarioDao extends Dao {
 		Query query = getEM().createQuery("FROM Veterinario", Veterinario.class);
 		return query.getResultList();
 	}
+
+	public Veterinario buscarPorId(Long id) {
+		return getEM().find(Veterinario.class, id);
+	}
 }

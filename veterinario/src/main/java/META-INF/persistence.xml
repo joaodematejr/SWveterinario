@@ -6,7 +6,8 @@
 	<persistence-unit name="veterinario_db"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>br.sc.joaodemate.entity.DonoAnimal</class>
+		<class>br.sc.joaodemate.entity.Cliente</class>
+		<class>br.sc.joaodemate.entity.Clinica</class>
 		<class>br.sc.joaodemate.entity.Veterinario</class>
 		<properties>
 			<!-- dados da conexao -->

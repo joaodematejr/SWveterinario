@@ -5,22 +5,22 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.sc.joaodemate.entity.DonoAnimal;
-import br.sc.joaodemate.rn.DonoAnimalRn;
+import br.sc.joaodemate.entity.Cliente;
+import br.sc.joaodemate.rn.ClienteRn;
 
-@FacesConverter(forClass = DonoAnimal.class)
-public class DonoAnimalConverter implements Converter {
+@FacesConverter(forClass = Cliente.class)
+public class ClienteConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
-		DonoAnimalRn DonoAnimalRn = new DonoAnimalRn();
+		ClienteRn clienteRn = new ClienteRn();
 		Long id = Long.parseLong(value);
-		return DonoAnimalRn.buscarPorId(id);
+		return clienteRn.buscarPorId(id);
 	}
 
 	@Override
 	public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-		DonoAnimal donoAnimal = (DonoAnimal) value;
+		Cliente donoAnimal = (Cliente) value;
 		return String.valueOf(donoAnimal.getId());
 	}
 

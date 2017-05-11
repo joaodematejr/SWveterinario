@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class DonoAnimal {
+public class Cliente {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -151,7 +151,7 @@ public class DonoAnimal {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DonoAnimal other = (DonoAnimal) obj;
+		Cliente other = (Cliente) obj;
 		if (id != other.id)
 			return false;
 		return true;

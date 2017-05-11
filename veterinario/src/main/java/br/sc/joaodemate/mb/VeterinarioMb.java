@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ComponentSystemEvent;
 
 import br.sc.joaodemate.entity.Veterinario;
 import br.sc.joaodemate.rn.VeterinarioRn;
@@ -15,6 +16,7 @@ public class VeterinarioMb {
 	private Veterinario veterinario;
 	private VeterinarioRn veterinarioRn;
 	private List<Veterinario> listarVeterinario;
+	private Long editarId;
 
 	@PostConstruct
 	public void init() {
@@ -48,6 +50,21 @@ public class VeterinarioMb {
 
 	public void setListarVeterinario(List<Veterinario> listarVeterinario) {
 		this.listarVeterinario = listarVeterinario;
+	}
+
+	public Long getEditarId() {
+		return editarId;
+	}
+
+	public void setEditarId(Long editarId) {
+		this.editarId = editarId;
+	}
+
+	public void carregarVeterinario(ComponentSystemEvent event) {
+		if (editarId == null) {
+			return;
+		}
+		veterinario = veterinarioRn.buscarPorId(editarId);
 	}
 
 	public String salvar() {

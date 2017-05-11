@@ -5,24 +5,23 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.sc.joaodemate.entity.Veterinario;
-import br.sc.joaodemate.rn.ClienteRn;
-import br.sc.joaodemate.rn.VeterinarioRn;
+import br.sc.joaodemate.entity.Clinica;
+import br.sc.joaodemate.rn.ClinicaRn;
 
-@FacesConverter(forClass = Veterinario.class)
-public class VeterinarioConverter implements Converter {
+@FacesConverter(forClass = Clinica.class)
+public class ClinicaConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
-		VeterinarioRn veterinarioRn = new VeterinarioRn();
+		ClinicaRn clinicaRn = new ClinicaRn();
 		Long id = Long.parseLong(value);
-		return veterinarioRn.buscarPorId(id);
+		return clinicaRn.buscarPodId(id);
 	}
 
 	@Override
 	public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-		Veterinario veterinario = (Veterinario) value;
-		return String.valueOf(veterinario.getId());
+		Clinica clinica = (Clinica) value;
+		return String.valueOf(clinica.getId());
 	}
 
 }

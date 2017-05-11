@@ -9,47 +9,47 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 
-import br.sc.joaodemate.entity.DonoAnimal;
-import br.sc.joaodemate.rn.DonoAnimalRn;
+import br.sc.joaodemate.entity.Cliente;
+import br.sc.joaodemate.rn.ClienteRn;
 
 @ViewScoped
 @ManagedBean
-public class DonoAnimalMb {
-	private DonoAnimal donoAnimal;
-	private DonoAnimalRn donoAnimalRn;
-	private List<DonoAnimal> listarDonoAnimal;
+public class ClienteMb {
+	private Cliente cliente;
+	private ClienteRn clienteRn;
+	private List<Cliente> listarDonoAnimal;
 	private Long editarId;
 
 	@PostConstruct
 	public void init() {
-		donoAnimal = new DonoAnimal();
-		donoAnimalRn = new DonoAnimalRn();
+		cliente = new Cliente();
+		clienteRn = new ClienteRn();
 	}
 
-	public DonoAnimal getDonoAnimal() {
-		return donoAnimal;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setDonoAnimal(DonoAnimal donoAnimal) {
-		this.donoAnimal = donoAnimal;
+	public void setCliente(Cliente donoAnimal) {
+		this.cliente = donoAnimal;
 	}
 
-	public DonoAnimalRn getDonoAnimalRn() {
-		return donoAnimalRn;
+	public ClienteRn getClienteRn() {
+		return clienteRn;
 	}
 
-	public void setDonoAnimalRn(DonoAnimalRn donoAnimalRn) {
-		this.donoAnimalRn = donoAnimalRn;
+	public void setClienteRn(ClienteRn donoAnimalRn) {
+		this.clienteRn = donoAnimalRn;
 	}
 
-	public List<DonoAnimal> getListarDonoAnimal() {
+	public List<Cliente> getListarDonoAnimal() {
 		if (listarDonoAnimal == null) {
-			listarDonoAnimal = donoAnimalRn.listarDonoAnimal();
+			listarDonoAnimal = clienteRn.listarDonoAnimal();
 		}
 		return listarDonoAnimal;
 	}
 
-	public void setListarDonoAnimal(List<DonoAnimal> listarDonoAnimal) {
+	public void setListarDonoAnimal(List<Cliente> listarDonoAnimal) {
 		this.listarDonoAnimal = listarDonoAnimal;
 	}
 
@@ -65,31 +65,32 @@ public class DonoAnimalMb {
 		if (editarId == null) {
 			return;
 		}
-		donoAnimal = donoAnimalRn.buscarPorId(editarId);
+		cliente = clienteRn.buscarPorId(editarId);
 	}
 
 	// -------Salvar---------
 	public String salvar() {
-		DonoAnimal carregarCpf = donoAnimalRn.buscarPorCpf(donoAnimal.getCpf());
+		Cliente carregarCpf = clienteRn.buscarPorCpf(cliente.getCpf());
 		// -------Validar Algum Campo Vazio---------
-		if (donoAnimal.getNome().length() <= 4 || donoAnimal.getCpf().length() <= 11 || donoAnimal.getRg().length() <= 9
-				|| donoAnimal.getEmail().length() <= 5 || donoAnimal.getTelefone().length() <= 11
-				|| donoAnimal.getCelular().length() <= 11) {
+		if (cliente.getNome().length() <= 4 || cliente.getCpf().length() <= 11 || cliente.getRg().length() <= 9
+				|| cliente.getEmail().length() <= 5 || cliente.getTelefone().length() <= 11
+				|| cliente.getCelular().length() <= 11) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Existe algum campos em branco ! ", ""));
 			// -------Validar Se CPF Já é cadastrado no sistema---------
-		} else if (donoAnimal.getId() == 0 && carregarCpf == null) {
-			donoAnimalRn.salvar(donoAnimal);
+		} else if (cliente.getId() == 0 && carregarCpf == null) {
+			clienteRn.salvar(cliente);
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, " Cadastrado(a) com sucesso ! ", "");
 			FacesContext.getCurrentInstance().addMessage(null, message);
-			donoAnimal = new DonoAnimal();
+			cliente = new Cliente();
 			listarDonoAnimal = null;
-		} else if (donoAnimal.getId() != 0 && (carregarCpf == null || carregarCpf.getId() == donoAnimal.getId())) {
-			donoAnimalRn.salvar(donoAnimal);
+		} else if (cliente.getId() != 0 && (carregarCpf == null || carregarCpf.getId() == cliente.getId())) {
+			clienteRn.salvar(cliente);
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, " Alterado(a) com sucesso ! ", "");
 			FacesContext.getCurrentInstance().addMessage(null, message);
-			donoAnimal = new DonoAnimal();
+			cliente = new Cliente();
 			listarDonoAnimal = null;
+			return "listarclientes.xhtml";
 		} else {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "O CPF já está cadastrado ! ", "");
 			FacesContext.getCurrentInstance().addMessage(null, message);
