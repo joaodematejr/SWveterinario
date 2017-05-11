@@ -1,5 +1,7 @@
 package br.sc.joaodemate.mb;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -12,6 +14,7 @@ import br.sc.joaodemate.rn.VeterinarioRn;
 public class VeterinarioMb {
 	private Veterinario veterinario;
 	private VeterinarioRn veterinarioRn;
+	private List<Veterinario> listarVeterinario;
 
 	@PostConstruct
 	public void init() {
@@ -33,6 +36,18 @@ public class VeterinarioMb {
 
 	public void setVeterinarioRn(VeterinarioRn veterinarioRn) {
 		this.veterinarioRn = veterinarioRn;
+	}
+
+	public List<Veterinario> getListarVeterinario() {
+		if (listarVeterinario == null) {
+			listarVeterinario = veterinarioRn.listarVeterinario();
+
+		}
+		return listarVeterinario;
+	}
+
+	public void setListarVeterinario(List<Veterinario> listarVeterinario) {
+		this.listarVeterinario = listarVeterinario;
 	}
 
 	public String salvar() {
