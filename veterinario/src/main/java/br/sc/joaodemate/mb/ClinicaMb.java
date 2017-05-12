@@ -1,10 +1,8 @@
 package br.sc.joaodemate.mb;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 
 import br.sc.joaodemate.entity.Clinica;
 import br.sc.joaodemate.rn.ClinicaRn;
@@ -39,10 +37,7 @@ public class ClinicaMb {
 
 	public String salvar() {
 		clinicaRn.salvar(clinica);
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, " Cadastrado(a) com sucesso ! ", "");
-		FacesContext.getCurrentInstance().addMessage(null, message);
 		return null;
-
 	}
 
 }

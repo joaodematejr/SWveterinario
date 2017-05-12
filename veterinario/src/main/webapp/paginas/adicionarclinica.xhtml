@@ -119,15 +119,82 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-6">
-										<label>Nome *</label>
+										<div class="form-group">
+											<label>Proprietário da Clínica *</label>
+											<h:selectOneMenu style="text-transform: capitalize"
+												styleClass="form-control"
+												value="#{clinicaMb.clinica.donoDaClinica}">
+												<f:selectItem itemLabel="Selecione um Proprietário" />
+												<f:selectItems value="#{veterinarioMb.listarVeterinario}"
+													var="veterinario" itemLabel="#{veterinario.donoDaClinica}"
+													itemValue="#{veterinario}" />
+											</h:selectOneMenu>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<label>Razão Social *</label>
 										<h:inputText pt:placeholder="..." class="form-control"
 											type="text" value="#{clinicaMb.clinica.razaoSocial}"
 											style="text-transform: capitalize" />
 									</div>
 								</div>
-								<div class="row"></div>
-								<div class="row"></div>
-								<div class="row"></div>
+								<div class="row">
+									<div class="col-lg-3">
+										<label>CNPJ *</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="cnpj" value="#{clinicaMb.clinica.cnpj}"
+											mask="99.999.999/9999-99" />
+									</div>
+									<div class="col-lg-3">
+										<label>Inscrição Estadual *</label>
+										<p:inputMask pt:placeholder="..." class="form-control" id="ie"
+											value="#{clinicaMb.clinica.ie}" mask="999.999.999" />
+									</div>
+									<div class="col-lg-3">
+										<label>Estado</label>
+										<div class="form-group">
+											<h:selectOneMenu class="form-control"
+												value="#{clinicaMb.clinica.estado}">
+												<f:selectItem itemValue="" itemLabel="Selecione um Estado" />
+												<f:selectItem itemValue="SC" itemLabel="Santa Catarina" />
+												<f:selectItem itemValue="RS" itemLabel="Rio Grande do Sul" />
+												<f:selectItem itemValue="PR" itemLabel="Paraná" />
+											</h:selectOneMenu>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<label>Cidade</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="cidade" value="#{clinicaMb.clinica.cidade}"
+											style="text-transform: capitalize" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<label>Bairro</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="bairro" value="#{clinicaMb.clinica.bairro}"
+											style="text-transform: capitalize" />
+									</div>
+									<div class="col-lg-3">
+										<label>CEP</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="cep" value="#{clinicaMb.clinica.cep}" mask="99999-999" />
+									</div>
+									<div class="col-lg-6">
+										<label>Endereço da Clínica</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="endereco" value="#{clinicaMb.clinica.endereco}"
+											style="text-transform: capitalize" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<label>Numero</label>
+										<p:inputMask pt:placeholder="..." class="form-control"
+											id="numero" value="#{clinicaMb.clinica.numero}" />
+									</div>
+								</div>
 							</div>
 							<div class="panel-footer">
 								<h:commandLink styleClass="btn btn-success"

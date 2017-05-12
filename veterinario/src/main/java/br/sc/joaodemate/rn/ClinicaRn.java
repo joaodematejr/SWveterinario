@@ -6,13 +6,13 @@ import br.sc.joaodemate.entity.Clinica;
 public class ClinicaRn {
 	private ClinicaDao dao;
 
-	public void salvar(Clinica clinica) {
-		dao.salvar(clinica);
+	public ClinicaRn() {
+		dao = new ClinicaDao();
 	}
 
-	public Object buscarPodId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void salvar(Clinica clinica) {
+		dao.salvar(clinica);
+
 	}
 
 }
