@@ -1,99 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- Bootstrap Core CSS -->
-	<link href="../bootstrap/vendor/bootstrap/css/bootstrap.min.css"
-		rel="stylesheet" />
-	<!-- Custom CSS -->
-	<link href="../bootstrap/dist/css/sb-admin-2.css" rel="stylesheet" />
-	<!-- Custom Fonts -->
-	<link href="../bootstrap/vendor/font-awesome/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css" />
-	<link rel="icon" href="../imagens/icon.png" type="image/x-icon" />
-	<title>Listar Clientes</title>
-</h:head>
-<h:body>
-	<div id="wrapper" class="active">
-		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation"
-			style="margin-bottom: 0">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.xhtml">Sistema Web
-				Veterinário 2.0</a>
-		</div>
-		<ul class="nav navbar-top-links navbar-right">
-			<!-- /.dropdown -->
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
-					<i class="fa fa-caret-down"></i>
-			</a>
-				<ul class="dropdown-menu dropdown-user">
-					<li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a></li>
-					<li><a href="#"><i class="fa fa-gear fa-fw"></i>
-							Configurações</a></li>
-					<li class="divider"></li>
-					<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
-							Logout</a></li>
-				</ul></li>
-		</ul>
-		<div class="navbar-default sidebar" role="navigation">
-			<div class="sidebar-nav navbar-collapse">
-				<ul class="nav" id="side-menu">
-					<a href="#"
-						class="sidebar-toggler pull-right visible-md visible-lg"
-						data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
-						<i class="ti-align-justify"></i>
-						<li><a href="#"><i class="fa fa-bars"></i> Menu<span
-								class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="#"><i class="fa fa-user"
-										aria-hidden="true"></i> Clientes <span class="fa arrow"></span></a>
-									<ul class="nav nav-third-level">
-										<li><a href="adicionarclientes.xhtml"><i
-												class="fa fa-user-plus" aria-hidden="true"></i> Adicionar
-												Clientes</a></li>
-										<li><a href="listarclientes.xhtml"><i
-												class="fa fa-bars" aria-hidden="true"></i> Listar Clientes</a></li>
-									</ul> <!-- /.nav-third-level --></li>
-								<li><a href="#"><i class="fa fa-user-md"
-										aria-hidden="true"></i> Veterinário <span class="fa arrow"></span></a>
-									<ul class="nav nav-third-level">
-										<li><a href="adicionarveterinario.xhtml"><i
-												class="fa fa-user-plus" aria-hidden="true"></i> Adicionar
-												Veterinário</a></li>
-										<li><a href="listarveterinarios.xhtml"><i
-												class="fa fa-bars" aria-hidden="true"></i> Listar
-												Veterinários </a></li>
-									</ul> <!-- /.nav-third-level --></li>
-								<li><a href="#"><i class="fa fa-hospital-o"
-										aria-hidden="true"></i> Clínica <span class="fa arrow"></span></a>
-									<ul class="nav nav-third-level">
-										<li><a href="adicionarclinica.xhtml"><i class="fa fa-user-plus"
-												aria-hidden="true"></i> Adicionar Veterinário</a></li>
-										<li><a href="#"><i class="fa fa-bars"
-												aria-hidden="true"></i> Listar Veterinários </a></li>
-									</ul> <!-- /.nav-third-level --></li>
-							</ul> <!-- /.nav-second-level --></li>
-					</a>
-				</ul>
-			</div>
-		</div>
-		</nav>
+
+<ui:composition template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="conteudo">
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
@@ -164,21 +81,6 @@
 				</h:form>
 			</div>
 		</div>
-	</div>
-	<!-- jQuery -->
-	<script src="../bootstrap/vendor/jquery/jquery.min.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="../bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-	<!-- Custom Theme JavaScript -->
-	<script src="../bootstrap/dist/js/sb-admin-2.js"></script>
-	<script>
-		$(document).ready(function() {
-			$("#myBtn").click(function() {
-				$("#myModal").modal();
-			});
-		});
-	</script>
-</h:body>
+	</ui:define>
+</ui:composition>
 </html>
