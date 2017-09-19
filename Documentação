@@ -1,0 +1,102 @@
+O projeto envolve a criação de um sistema de cadastro de animais através de QR code ou código de barras que irá impresso na medalinha da coleira do animal. O responsável por usar o sistema será o veterinário. Além do cadastro, o sistema irá gravar informações do dono do animal, e também informações médicas do próprio animal, bem como a consulta realizada. Com isso, o animal terá um histórico médico de atendimento gravado dentro do sistema.
+
+O sistema de cobrança será feito através de um gateway, pagseguro ou paypal, a cobrança será mensal e o valor envolve a quantidade de vezes que a consulta de um animal (qr code ou código de barras) foi feita no sistema, ou seja, o valor será por quantidade de uso do sistema. Consultou, cobrou. Ao fim do mês o sistema informa a necessidade de pagamento da conta diretamente no pagseguro ou paypal para liberar o uso da conta.
+
+ESCOPO GERAL:
+
+Cadastro de novas contas no sistema (Painel Revendedor)
+Compra de leitor de código de barras;
+Tela de pacotes (Paypal recorrente);
+Login do veterinário (Apenas os veterinários tem acesso ao sistema);
+Dashboard de estoque de medalhas (códigos de barras), animais cadastrados;
+Cadastro proprietário do animal;
+Cadastro do animal e vinculo a um código de barras;
+Formulário de Anamnese (Formulário que pede informações e detalhes médicos do animal);
+Consulta do animal por código de barras;
+Painel de histórico médico do animal;
+Formulário de atualização de informações médicas do animal (cadastrado pelo veterinário após uma nova consulta ou procedimento realizado);
+Cobrança por quantidade de consultas no sistema (R$ 0,50 centavos / consulta);
+Fechamento Mensal da quantidade de consultas e envio do boleto.
+
+FUNÇÕES
+
+Edição de informações do proprietário;
+Edição de informações básicas do animal;
+
+Formulário de cadastro dono animal
+Nome*
+CPF
+RG
+Email
+Telefone
+Celular*
+Endereço
+Numero
+CEP
+Complemento
+Cidade
+Estado
+
+Formulário de Cadastro Veterinário
+Dono da Clínica
+Nome
+CRMV
+CPF
+RG
+Email
+Telefone
+Celular
+Endereço
+Numero
+CEP
+Complemento
+Cidade
+Estado
+
+Clínica
+Endereço Clínica
+CNPJ
+Razão Social
+IE
+CEP
+Número
+Cidade
+Estado
+
+FORMULÁRIO DE ANAMNESE (DADOS DO ANIMAL)
+Informações Gerais
+Foto do Animal
+Animal
+Raça
+Espécie
+Pelagem
+Nasc.
+Alimentação
+Vermifugação
+Peso
+Ectoparasita
+Vacinação (Nacional / Importada)
+Proprietário (Dados puxados do sistema)
+
+FORMULÁRIO DE EXAME CLÍNICO
+Queixa Principal (testarem)
+Temperatura
+Hidratação
+Mucosa
+Aparência Geral
+Freqüência Card
+Frequência Respiratoria
+Olhos, Orelhas, Nariz, Orofaringe
+Osteomuscular
+Neurologico
+Cardiovascular
+Respiratório
+Gastrointestinal
+Geniturinário
+
+Exames Complementares
+1 (upload de arquivo)
+2 (upload de arquivo)
+(Opção de abrir terceira, quarta, …, opção de upload de arquivo)
+Prováveis Diagnósticos (textarea)
+Tratamento (textarea)
